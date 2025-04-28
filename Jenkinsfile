@@ -14,25 +14,26 @@ pipeline {
     stages {
         stage('Initialisation') {
             steps {
+                sh "echo "Branch name ${BRANCH_NAME}""
+                sh "make venv && make install"
+            }
+        }
+
+
+        stage('Test Unitaire') {
+            steps {
                 script {
-                    echo "Branch name ${BRANCH_NAME}"
+                    echo "Running tests..."
+                    // Add your test commands here
                 }
             }
         }
+
         stage('Build') {
             steps {
                 script {
                     echo "Building the project..."
                     // Add your build commands here
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    echo "Running tests..."
-                    // Add your test commands here
                 }
             }
         }
