@@ -6,6 +6,8 @@ pipeline {
     }
 
     environment {
+        // Define environment variables here
+        BOT_NAME = 'awesome-bot'
         // BOT_TOKEN = credentials('telegram-bot-token')
     }
 
