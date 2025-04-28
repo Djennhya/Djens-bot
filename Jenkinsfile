@@ -16,6 +16,7 @@ pipeline {
             steps {
                 sh "echo Branch name ${BRANCH_NAME}"
                 sh "make venv && make install"
+                sh "test dev"
             }
         }
 
