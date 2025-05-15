@@ -16,15 +16,15 @@ pipeline {
             steps {
                 sh "echo Branch name ${BRANCH_NAME}"
                 sh "make venv && make install"
-                sh "test dev"
             }
         }
 
 
-        stage('Test Unitaire') {
+        stage('Tests Unitaires') {
             steps {
                 script {
                     echo "Running tests..."
+                    sh "make test"
                     // Add your test commands here
                 }
             }
