@@ -1,6 +1,9 @@
-pytest
 fastapi[standard]
+uvicorn
+pydantic
 pydantic_settings
 boto3
 mangum
 httpx
+python-telegram-bot
+pytest

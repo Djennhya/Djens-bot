@@ -12,10 +12,21 @@ pipeline {
     }
 
     stages {
+
         stage('Initialisation') {
             steps {
                 sh "echo Branch name ${BRANCH_NAME}"
                 sh "make venv && make install"
+            }
+        }
+
+        stage('Environment variable injection'){
+            steps {
+                script{
+                    withCredentials([file(credentialsId: 'djennhya-chatbot', variable: 'ENV_FILE')]) {
+                        sh "cat $ENV_FILE >> .env"
+                    }
+                }
             }
         }
 
@@ -46,6 +57,16 @@ pipeline {
                     // Add your deployment commands here
                     echo "Deploying the project..."
                     sh "make deploy env=${BRANCH_NAME}"
+                }
+            }
+        }
+
+        stage('Test endpoint'){
+            steps {
+                script {
+                    // Add your endpoint testing commands here
+                    echo "Testing the endpoint..."
+                    sh "make test-endpoint env=${BRANCH_NAME}"
                 }
             }
         }
