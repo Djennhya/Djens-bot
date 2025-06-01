@@ -124,7 +124,7 @@ Utilisateur Telegram
 
 ---
 
-## Auteurs
+## Auteure
 
 - Djennhya
 - https://github.com/Djennhya/Djens-bot
